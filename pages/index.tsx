@@ -28,6 +28,7 @@ const Home: NextPage = () => {
     } catch (error) {
       setAddress('')
       setBalance(0)
+      setIsExecutable(false)
       alert(error)
     }
   }
