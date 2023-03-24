@@ -1,34 +1,109 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Solana Intro Frontend
+
+Welcome to the Solana Intro Frontend repository! This project is a simple web application built using Next.js, React, and the Solana Web3.js library. It allows you to check the balance of a Solana address and determine whether the account is executable or not.
+
+Solana Intro Frontend was built as part of the 6-week [Solana Core Developer Program](https://buildspace.so/p/solana-core/) on [buildspace](https://buildspace.so).
+
+![Solana Contract - executable](./img/Solana-Contract_executable.png)
+
+![Solana Contract - not-executable](./img/Solana-Contract_not-executable.png)
+
+## Table of Contents
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Understanding the Code](#understanding-the-code)
+- [Resources](#resources)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
+
+
+## Features
+
+- Enter a Solana public address to view its balance
+- Determine whether the entered address is executable or not
+- Learn how to use the Solana Web3.js library in a simple React application
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to set up the project locally.
+
+### Prerequisites
+
+Before getting started, make sure you have the following software installed on your system:
+
+- [Node.js](https://nodejs.org/en/) 
+
+This project was built using Node.js v18.14.0. If you use [NVM](https://github.com/nvm-sh/nvm), you can run `nvm use` to switch to the correct version.
+
+
+### Installation
+
+1. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then clone this repository:
+
+```bash
+git clone https://github.com/<your username>/solana-intro-frontend.git
+```
+
+2. Change to the project directory:
+
+```bash
+cd solana-intro-frontend
+```
+
+3. Install the required dependencies:
+
+```bash
+npm ci 
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open your web browser and navigate to `http://localhost:3000` to view the application.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Enter a Solana public address in the input field provided on the web application.
+2. Press the "Check SOL Balance" button to view the balance and executable status of the entered address.
+3. The address, balance and executable status of the entered address will be displayed on the screen.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Understanding the Code
 
-## Learn More
+The main functionality of the application resides in the `index.tsx` file, which imports `AddressForm` component and utilizes the Solana Web3.js library to fetch the balance and executable status of a given Solana address.
 
-To learn more about Next.js, take a look at the following resources:
+- `useState` is used to manage the local state for balance, address, and executable status.
+- `addressSubmittedHandler` function is triggered when the user submits the form with a Solana address.
+  - A new PublicKey object is created using the entered address.
+  - A new Connection object is created to connect to the Solana devnet.
+  - The `getBalance()` method is called to fetch the balance of the entered address.
+  - The `getAccountInfo()` method is called to fetch the account information and determine if the account is executable or not.
+- The `AddressForm` component is responsible for rendering the input field and submit button.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Resources
+- [Solana Web3.js Documentation](https://solana-labs.github.io/solana-web3.js/)
+- [Solona Core Developer Program](https://buildspace.so/p/solana-core/) at [buildspace](https://buildspace.so)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Contributing
+Contributions are always welcome! If you'd like to contribute to this project or have any suggestions, feel free to create a new issue or submit a pull request. Please check the [Code of Conduct](./CODE_OF_CONDUCT.md) first.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To submit a pull request, follow these steps:
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/your-feature-name`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin feature/your-feature-name`)
+5. Create a new Pull Request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is open-source and available under the [MIT License](./LICENSE.md).
+
+## Support
+If you have any questions or need help getting started, please open an issue in the repository or contact me on Twitter: @tanja_codes
